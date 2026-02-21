@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pulse Prediction System</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+  <body>
+    <main class="container">
+      <h1>Pulse Prediction System</h1>
+      <p class="subtitle">Heart-rate + blood-pressure risk screening</p>
+
+      <form id="risk-form" class="card" autocomplete="off">
+        <label for="heart_rate">Heart Rate (bpm)</label>
+        <input
+          type="text"
+          id="heart_rate"
+          inputmode="numeric"
+          pattern="[0-9]*"
+          placeholder="e.g. 72"
+          required
+        />
+
+        <label for="systolic_bp">Systolic BP (mmHg)</label>
+        <input
+          type="text"
+          id="systolic_bp"
+          inputmode="numeric"
+          pattern="[0-9]*"
+          placeholder="e.g. 120"
+          required
+        />
+
+        <label for="diastolic_bp">Diastolic BP (mmHg)</label>
+        <input
+          type="text"
+          id="diastolic_bp"
+          inputmode="numeric"
+          pattern="[0-9]*"
+          placeholder="e.g. 80"
+          required
+        />
+
+        <div class="actions">
+          <button type="submit">Assess Risk</button>
+          <button type="button" id="clear-btn" class="secondary">Clear</button>
+        </div>
+      </form>
+
+      <section id="result" class="card hidden" aria-live="polite">
+        <h2>Assessment Result</h2>
+        <p><strong>Risk level:</strong> <span id="risk_level"></span></p>
+        <p><strong>Risk score:</strong> <span id="risk_score"></span></p>
+        <ul id="reasons"></ul>
+      </section>
+
+      <p id="error" class="error hidden"></p>
+    </main>
+
+    <script src="/static/app.js"></script>
+  </body>
+</html>
